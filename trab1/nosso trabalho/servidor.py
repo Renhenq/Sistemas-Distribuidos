@@ -6,6 +6,14 @@ lock = threading.Lock()
 def handle_client(conn, addr):
     print(f"{addr} se conectou ao servidor")
 
+    wellcome_msg = (
+        "Bem vindo.\n"
+        "Comandos:\n" 
+        "\t/nick - alterar seu nome de usuário\n"
+        "\t/sair - encerrar conexão com o servidor\n"
+    )
+    conn.send(wellcome_msg.encode('utf-8'))
+
     with lock:
         clientes.append(conn)
 
@@ -20,13 +28,16 @@ def handle_client(conn, addr):
 
             broadcast(message, conn)
             
+    except:
+        pass
+
     finally:
         with lock:
             if conn in clientes:
                 clientes.remove(conn)
         
         conn.close()
-        print(f"conexao de {conn} encerrada")
+        print(f"conexao de {addr} encerrada")
 
     
 def broadcast(message, conn):
