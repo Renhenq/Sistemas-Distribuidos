@@ -19,7 +19,7 @@ def handle_client(conn, addr):
 
     try:
         while True:
-            message = conn.recv(1024).decode('-utf-8')
+            message = conn.recv(1024).decode('utf-8')
             
             if not message:
                 break
@@ -54,7 +54,7 @@ def start_server():
 
     server.listen()
 
-    print("Servidor iniciado na porta 5000")
+    print("Servidor iniciado na porta 8000")
 
     while True:
         conn, addr = server.accept()
