@@ -3,6 +3,7 @@
 
 import xmlrpc.client
 
+# objeto de conexão com o servidor
 proxy = xmlrpc.client.ServerProxy("http://localhost:8000")
 
 print("--- Catálogo Remoto ---")
@@ -12,6 +13,7 @@ print("ISBN: 9786556400785 | Bufo e Spallanzani")
 print("ISBN: 9788535933925 | Capitães da Areia")
 print("ISBN: 9788535910667 | Vidas Secas")
 
+# loop principal para receber comandos do usuário
 while True:
     print("\nOpções:")
     print("1 - Consultar dados do livro")
@@ -22,12 +24,14 @@ while True:
 
     if escolha == '1':
         a = input("Digite o ISBN do livro: ")
-        resultado = proxy.dados(a)
+        # chamada RPC para obter dados do servidor
+        resultado = proxy.dados(a) 
         print("Resposta do Servidor:", resultado)
 
     elif escolha == '2':
         a = input("Digite o ISBN do livro: ")
         b = input("Digite a quantidade desejada: ")
+        # chamada RPC para obter dados do servidor
         resultado = proxy.compra(a, b)
         print("Resposta do Servidor:", resultado)
 

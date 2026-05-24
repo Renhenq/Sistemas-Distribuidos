@@ -10,12 +10,14 @@ catalogo = {
     "9788535910667": {"titulo": "Vidas Secas", "autor": "Graciliano Ramos", "editora": "Record", "preco": 24.90}
 }
 
+# função para retornar dados de um livro para o cliente
 def dados(a):
     livro = catalogo.get(str(a))
     if livro:
         return f"ISBN: {a}, Autor: {livro['autor']}, Editora: {livro['editora']}, Preço: R$ {livro['preco']:.2f}"
     return "Erro: Livro não encontrado. Verifique o ISBN."
 
+# função para calcular e retornar o valor total de uma compra do cliente
 def compra(a, b):
     livro = catalogo.get(str(a))
     if livro:
@@ -27,10 +29,13 @@ def compra(a, b):
             return "Erro: A quantidade informada é inválida."
     return "Erro: Livro não encontrado. Verifique o ISBN."
 
+# cria servidor XML-RPC
 server = SimpleXMLRPCServer(("localhost", 8000))
 
 print("Servidor RPC executando na porta 8000...")
+# registra as funções do servidor para serem acessadas pelo cliente
 server.register_function(dados, "dados")
 server.register_function(compra, "compra")
 
+# mantém servidor ativo
 server.serve_forever()
