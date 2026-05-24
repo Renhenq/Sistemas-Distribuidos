@@ -1,3 +1,6 @@
+# Integrantes do grupo: Renan Henrique - 12311BCC036
+#                       Sophia Ladir - 12311BCC004 
+
 import xmlrpc.client
 
 proxy = xmlrpc.client.ServerProxy("http://localhost:8000")
