@@ -30,9 +30,15 @@ def send_message(client_socket):
             client_socket.send(full_message.encode('utf-8'))
 
 def start_client():
+    global nickname
+
+    nickname = input("Digite seu nickname: ")
+
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     client.connect(('localhost', 8000))
+
+    client.send(nickname.encode('utf-8'))
 
     receive_thread = threading.Thread(target=receive_message, args=(client,))
     receive_thread.start()

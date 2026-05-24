@@ -5,7 +5,9 @@ proxy = xmlrpc.client.ServerProxy("http://localhost:8000")
 print("--- Catálogo Remoto ---")
 print("Livros disponíveis:")
 print("ISBN: 9788501012074 | Cem Anos de Solidão")
-print("ISBN: 9786556400785  | Bufo e Spallanzani")
+print("ISBN: 9786556400785 | Bufo e Spallanzani")
+print("ISBN: 9788535933925 | Capitães da Areia")
+print("ISBN: 9788535910667 | Vidas Secas")
 
 while True:
     print("\nOpções:")

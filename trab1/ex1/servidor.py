@@ -6,8 +6,10 @@ lock = threading.Lock()
 def handle_client(conn, addr):
     print(f"{addr} se conectou ao servidor")
 
+    nickname = conn.recv(1024).decode('utf-8')
+
     wellcome_msg = (
-        "Bem vindo.\n"
+        f"Bem vindo, {nickname}.\n"
         "Comandos:\n" 
         "\t/nick - alterar seu nome de usuário\n"
         "\t/sair - encerrar conexão com o servidor\n"

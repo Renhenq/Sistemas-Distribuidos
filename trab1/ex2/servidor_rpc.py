@@ -2,7 +2,9 @@ from xmlrpc.server import SimpleXMLRPCServer
 
 catalogo = {
     "9788501012074": {"titulo": "Cem Anos de Solidão", "autor": "Gabriel García Márquez", "editora": "Record", "preco": 35.00},
-    "9786556400785 ": {"titulo": "Bufo e Spallanzani", "autor": "Rubem Fonseca", "editora": "Nova Fronteira", "preco": 20.00}
+    "9786556400785": {"titulo": "Bufo e Spallanzani", "autor": "Rubem Fonseca", "editora": "Nova Fronteira", "preco": 20.00},
+    "9788535933925": {"titulo": "Capitães da Areia", "autor": "Jorge Amado", "editora": "Companhia das Letras", "preco": 28.00},
+    "9788535910667": {"titulo": "Vidas Secas", "autor": "Graciliano Ramos", "editora": "Record", "preco": 24.90}
 }
 
 def dados(a):
